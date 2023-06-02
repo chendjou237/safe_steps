@@ -4,7 +4,8 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mapbox_navigation/flutter_mapbox_navigation.dart';
-@RoutePage()    
+
+@RoutePage()
 class MapView extends StatefulWidget {
   const MapView({Key? key}) : super(key: key);
 
@@ -152,12 +153,13 @@ class _MapViewState extends State<MapView> {
                           child: const Text('Start Multi Stop'),
                           onPressed: () async {
                             _isMultipleStop = true;
-                            final wayPoints = <WayPoint>[];
-                            wayPoints.add(_origin);
-                            wayPoints.add(_stop1);
-                            wayPoints.add(_stop2);
-                            wayPoints.add(_stop3);
-                            wayPoints.add(_destination);
+                            final wayPoints = <WayPoint>[
+                              _origin,
+                              _stop1,
+                              _stop2,
+                              _stop3,
+                              _destination
+                            ];
 
                             await MapBoxNavigation.instance.startNavigation(
                               wayPoints: wayPoints,
