@@ -10,7 +10,8 @@ class AppRouter extends $AppRouter {
         //of the replaceInRouteName property
         AutoRoute(page: HomeView.page, path: '/', initial: true),
         AutoRoute(page: MapView.page, path: '/map'),
-        AutoRoute(page: SignUp.page, path: '/signup'),
-        AutoRoute(page: LoginView.page, path: '/login')
+        AutoRoute(page: SignUpView.page, path: '/signup'),
+        AutoRoute(page: LoginView.page, path: '/login'),
+        AutoRoute(page: OtpView.page, path: '/otp'),
       ];
 }

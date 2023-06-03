@@ -1,27 +1,25 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pinput/pinput.dart';
 import 'package:safe_steps/app/utils/extensions/size.dart';
-import 'package:safe_steps/auth/presentation/views/widgets/form_field_input.dart';
 import 'package:safe_steps/auth/presentation/views/widgets/safe_button.dart';
 
 @RoutePage()
-class SignUpView extends StatefulWidget {
-  const SignUpView({Key? key}) : super(key: key);
+class OtpView extends StatefulWidget {
+  const OtpView({Key? key}) : super(key: key);
 
   @override
-  State<SignUpView> createState() => _SignUpViewState();
+  State<OtpView> createState() => _OtpViewState();
 }
 
-class _SignUpViewState extends State<SignUpView> {
+class _OtpViewState extends State<OtpView> {
   final _formKey = GlobalKey<FormState>();
 
-  final _phoneController = TextEditingController();
-  final _nameController = TextEditingController();
+  final _otpController = TextEditingController();
   @override
   void dispose() {
-    _phoneController.dispose();
-    _nameController.dispose();
+    _otpController.dispose();
     super.dispose();
   }
 
@@ -31,7 +29,7 @@ class _SignUpViewState extends State<SignUpView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Sign Up',
+          'Verify Phone Number',
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -43,29 +41,21 @@ class _SignUpViewState extends State<SignUpView> {
         child: Column(
           children: <Widget>[
             Text(
-              'Welcome',
+              'Enter the 6-digit code sent to you at',
               style: textTheme.headlineMedium,
             ),
             6.hGap,
             Text(
-              'We are glad you join us',
+              'Please we send you a code to verify your phone number ',
               style: textTheme.bodyMedium,
             ),
             125.hGap,
-            SafeFieldInput(
-              text: textTheme,
-              hint: "What's your name?",
-              controller: _nameController,
-            ),
-            30.hGap,
-            SafeFieldInput(
-              text: textTheme,
-              hint: 'what about your phone Number?',
-              keyboardType: TextInputType.phone,
-              controller: _phoneController,
+            Pinput(
+              length: 6,
+              controller: _otpController,
             ),
             82.hGap,
-            SafeButton(text: 'Join Us', action: () {}),
+            SafeButton(text: 'Verify', action: () {}),
           ],
         ),
       ),
