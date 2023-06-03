@@ -7,28 +7,24 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:safe_steps/app/configs/router/app_router.dart';
+import 'package:safe_steps/app/configs/theme/light_theme.dart';
 import 'package:safe_steps/l10n/l10n.dart';
 
-import 'package:safe_steps/map/presentation/map_page.dart';
-
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  App({Key? key}) : super(key: key);
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
-        colorScheme: ColorScheme.fromSwatch(
-          accentColor: const Color(0xFF13B9FF),
-        ),
-      ),
+    return MaterialApp.router(
+      theme: const AppTheme().toThemeData(),
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const MapView(),
+      routerConfig: _appRouter.config(),
     );
   }
 }

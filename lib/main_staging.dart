@@ -9,5 +9,5 @@ import 'package:safe_steps/app/app.dart';
 import 'package:safe_steps/bootstrap.dart';
 
 void main() {
-  bootstrap(() => const App());
+  bootstrap(App.new);
 }

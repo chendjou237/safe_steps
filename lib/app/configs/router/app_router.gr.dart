@@ -12,7 +12,7 @@ import 'package:auto_route/auto_route.dart' as _i5;
 import 'package:safe_steps/auth/presentation/views/home_view.dart' as _i3;
 import 'package:safe_steps/auth/presentation/views/login_view.dart' as _i2;
 import 'package:safe_steps/auth/presentation/views/sign_up.dart' as _i4;
-import 'package:safe_steps/map/presentation/map_page.dart' as _i1;
+import 'package:safe_steps/bags/presentation/views/map_page.dart' as _i1;
 
 abstract class $AppRouter extends _i5.RootStackRouter {
   $AppRouter();
