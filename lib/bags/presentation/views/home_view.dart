@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:safe_steps/app/utils/extensions/screen.dart';
 import 'package:safe_steps/app/utils/extensions/size.dart';
+import 'package:safe_steps/auth/presentation/views/widgets/bag_card.dart';
 
 final List<String> products = ['Pizza', 'Burgers', 'Tacos', 'Sushi', 'Pasta'];
 
@@ -29,15 +30,15 @@ class HomeView extends StatelessWidget {
             ),
             20.hGap,
             Expanded(
-              child: ListView.builder(
+              child: ListView.separated(
+                separatorBuilder: (context, index) => 20.hGap,
                 itemCount: products.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: const Icon(Icons.fastfood),
-                    title: Text(products[index]),
-                    trailing: const Icon(Icons.arrow_forward_ios),
-                    onTap: () {},
-                  );
+                  return InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: const BagCard());
                 },
               ),
             ),

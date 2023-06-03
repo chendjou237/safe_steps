@@ -2,6 +2,7 @@ import 'package:flutter/painting.dart';
 
 class Palette {
   static const Color primary = Color(0xFF0D47A1);
+  static const Color primaryLight = Color(0xFF5472D3);
   static const Color primaryDark = Color(0xFF01579B);
   static const Color accent = Color(0xFF00E5FF);
   static const Color primaryText = Color(0xFF212121);

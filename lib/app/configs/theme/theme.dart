@@ -3,15 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
 
-
-import '../../utils/palette.dart';
+import 'package:safe_steps/app/utils/palette.dart';
 
 @immutable
 class SafeTheme extends ThemeExtension<SafeTheme> {
   const SafeTheme({
     this.primaryColor = Palette.primary,
     this.tertiaryColor = Palette.tertiary,
-    this.neutralColor =  Palette.secondary,
+    this.neutralColor = Palette.secondary,
   });
 
   final Color primaryColor;
@@ -73,7 +72,8 @@ class SafeTheme extends ThemeExtension<SafeTheme> {
       extensions: [this],
       colorScheme: colorScheme,
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      scaffoldBackgroundColor: isLight ? colorScheme.secondary : colorScheme.background,
+      scaffoldBackgroundColor:
+          isLight ? colorScheme.background : colorScheme.surface,
       textTheme: textTheme,
       tabBarTheme: TabBarTheme(
         labelColor: colorScheme.onSurface,
@@ -96,6 +96,8 @@ class SafeTheme extends ThemeExtension<SafeTheme> {
         indicatorColor: colorScheme.secondaryContainer,
       ),
       appBarTheme: AppBarTheme(
+        titleTextStyle: textTheme.display3,
+        centerTitle: true,
         backgroundColor: isLight ? colorScheme.onPrimary : colorScheme.surface,
       ),
       chipTheme: ChipThemeData(
@@ -144,15 +146,15 @@ extension on Scheme {
 
 const lightColorScheme = ColorScheme(
   brightness: Brightness.light,
-  primary: Color(0xFFFBE521),
+  primary: Palette.primary,
   onPrimary: Color(0xFFFFFFFF),
-  primaryContainer: Color(0xFFD9E2FF),
+  primaryContainer: Palette.accent,
   onPrimaryContainer: Color(0xFF001945),
-  secondary: Color(0xFFB02F00),
+  secondary: Palette.secondary,
   onSecondary: Color(0xFFFFFFFF),
-  secondaryContainer: Color(0xFFFFDBD1),
+  secondaryContainer: Palette.accent,
   onSecondaryContainer: Color(0xFF3B0900),
-  tertiary: Color(0xffFBE521),
+  tertiary: Palette.tertiary,
   onTertiary: Color(0xFF001F25),
   tertiaryContainer: Color(0xFF7EF8D5),
   onTertiaryContainer: Color(0xFF002018),
@@ -250,7 +252,7 @@ extension FigmaStyles on TextTheme {
         fontWeight: FontWeight.w500,
         color: Palette.primaryDark,
       );
-      TextStyle get subtitle => GoogleFonts.poppins(
+  TextStyle get subtitle => GoogleFonts.poppins(
         fontSize: 10.sp,
         fontWeight: FontWeight.w500,
         color: Palette.primaryText,
@@ -258,16 +260,16 @@ extension FigmaStyles on TextTheme {
   TextStyle get subtitle3 => GoogleFonts.poppins(
         fontSize: 16.sp,
         fontWeight: FontWeight.w500,
-        color: Palette.primaryText
+        color: Palette.primaryText,
       );
-       TextStyle get button1 => GoogleFonts.poppins(
+  TextStyle get button1 => GoogleFonts.poppins(
         fontSize: 14.sp,
         fontWeight: FontWeight.w500,
-        color: Palette.primaryText
+        color: Palette.primaryText,
       );
-      TextStyle get subHeading1 => GoogleFonts.poppins(
+  TextStyle get subHeading1 => GoogleFonts.poppins(
         fontSize: 16.sp,
         fontWeight: FontWeight.w600,
-        color: Palette.primaryText
+        color: Palette.primaryText,
       );
 }

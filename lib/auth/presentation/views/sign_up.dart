@@ -1,4 +1,4 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safe_steps/app/utils/extensions/size.dart';
@@ -65,7 +65,9 @@ class _SignUpViewState extends State<SignUpView> {
               controller: _phoneController,
             ),
             82.hGap,
-            SafeButton(text: 'Join Us', action: () {}),
+            SafeButton(
+                text: 'Join Us',
+                action: () => context.router.pushNamed('/otp')),
           ],
         ),
       ),
